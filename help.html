@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help - KASIKO</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Help Page Custom Styles */
+    .help-search-container {
+      margin-bottom: 20px;
+    }
+    .help-search-container input {
+      width: 100%;
+      padding: 10px 1em;
+      border: 0;
+      border-left: 4px solid #ddd;
+      border-radius: 4px;
+      background: #000;
+      color: white;
+      font-size: 1.4rem;
+      margin: 0 1em;
+      box-sizing: border-box;
+    }
+    
+    .help-search-container input::placeholder{
+       color: #b8eff8e3;
+       font-family: "Liter";
+    }
+        
+    .help-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    /* Command Cards List */
+    #help-cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+    .category-section {
+      width: 100%;
+    }
+    .category-section h2 {
+      margin: 1em 0;
+      color: #4150f2;
+      font-family: "Freeman";
+    }
+    .command-card {
+      background: #0f0f13;
+      border-bottom: .2em solid #3f4a5b;
+      border-radius: 8px;
+      padding: 1.5em 1em;
+      width: calc(48% - 20px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .command-card:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .command-card h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+    .command-card h3.commandName {
+      color: #b4b3b573;
+    }
+    
+    .command-card p {
+      margin: 1px 0;
+      font-size: 0.9rem;
+      color: #efefef8f;
+      padding: .4em 0!important;
+    }
+    .command-card p.commandParameters {
+      color: white;
+      font-size: 1.12rem;
+      display: flex;
+      align-items: center;
+      gap: .25em;
+      font-family: "Freeman";
+      overflow-x: scroll;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .commandParameters code {
+      border-radius: 1em;
+      background: #1b2c36;
+      color: white!important;
+      padding: .25em .5em;
+      font-size: .85rem;
+    }
+    .command-card button {
+      margin-top: .4em;
+      padding: 4px 12px;
+      background-color: #767baf88;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .command-card button:hover {
+      background-color: #5e0ad3;
+    }
+    /* Help Detail View */
+    #help-detail-container {
+      display: none;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #00000033;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    #help-detail-container .breadcrumbs {
+      font-size: 0.9rem;
+      color: #af9cff;
+      margin-bottom: 10px;
+    }
+    #help-detail-container h2 {
+      margin-top: 0;
+    }
+    
+    .infoPageParams {
+      border-left: .25em solid #000;
+      border-bottom: .25em solid #000;
+      margin: 1em 0;
+      padding: .2em 0 .25em 1em!important;
+      border-radius: .75em;
+      font-family: "Freeman";
+      font-size: 1.4em;
+    }
+    
+    #help-detail-container button.back-btn {
+      margin-bottom: 2em;
+      padding: 8px 2em;
+      background:  #e5ecffb6;
+      color: #333;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #help-detail-container button.back-btn:hover {
+      background-color: #aaa;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .command-card {
+        width: calc(50% - 20px);
+      }
+    }
+    @media (max-width: 480px) {
+      .command-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Side Navigation for Desktop -->
+  <aside class="sidebar">
+    <div class="logo">
+      <a href="index.html"><img src="./assets/images/kasiko.png" width="30%"></a>
+    </div>
+    <nav class="side-nav">
+      <a href="index.html">Home</a>
+      <a href="help.html">Help</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="royale-pass.html">Royale Pass</a>
+      <a href="items.html">Items</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="changelog.html">Changelog</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <!-- Mobile Header (only shown on small screens) -->
+    <header class="mobile-header">
+      <div class="logo">
+        <a href="index.html"><img src="assets/images/kasiko.png" width="30%"></a>
+      </div>
+      <button class="menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.5 12H19.5" stroke="currentColor" stroke-width="1.5"
+            stroke-miterlimit="10" stroke-linecap="round" />
+          <path d="M4.5 17.7692H19.5" stroke="currentColor" stroke-width="1.5"
+            stroke-miterlimit="10" stroke-linecap="round" />
+          <path d="M4.5 6.23077H19.5" stroke="currentColor" stroke-width="1.5"
+            stroke-miterlimit="10" stroke-linecap="round" />
+        </svg>
+      </button>
+    </header>
+
+    <!-- Help Section -->
+    <section class="card page help">
+      <h1>Help</h1>
+      <p>Search for a command or browse the categories below to view detailed help information.</p>
+      
+      <!-- Search Input -->
+      <div class="help-search-container">
+        <input type="text" id="help-search" placeholder="Search commands..." />
+      </div>
+      
+      <!-- Container for Command Cards -->
+      <div id="help-cards-container"></div>
+      
+      <!-- Detailed Help View -->
+      <div id="help-detail-container">
+        <!-- Breadcrumbs will appear here -->
+        <div class="breadcrumbs" id="help-breadcrumbs"></div>
+        <!-- Detailed content will appear here -->
+        <button class="back-btn" id="back-btn">Back</button>
+        <div id="help-detail-content"></div>
+      </div>
+    </section>
+
+    <!-- Footer as a Card -->
+    <footer class="card footer">
+      <p>&copy; 2025 KASIKO. All rights reserved.</p>
+      <p>
+        <a href="disclaimer.html">Disclaimer</a> ✦
+        <a href="privacy.html">Privacy Policy</a> ✦
+        <a href="terms.html">Terms of Service</a> ✦
+        <a href="changelog.html">Changelog</a> ✦
+        <a href="contact.html">Contact</a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- Include the Help JavaScript file -->
+  <script src="assets/javascript/help.js"></script>
+  <script src="assets/javascript/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+[{
+  "version": "Version 1.1.0",
+  "date": "Feb 23, 2024",
+  "changes": [
+    "Improved performance and fixed various bugs.",
+    "Added alien mode. Use `/help alien` to learn more."
+  ]
+}]

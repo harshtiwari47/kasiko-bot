@@ -1,0 +1,563 @@
+/*--------------------------------------------------------------
+   Import Fonts
+--------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Freeman&family=Liter&display=swap');
+
+/*--------------------------------------------------------------
+   CSS Variables
+   Grouped into Colors, Typography, Spacing, and Transitions
+--------------------------------------------------------------*/
+:root {
+  /* Colors */
+  --color-bg: #030306;
+  --color-navbar: rgba(12, 17, 30, 0.56);
+  --color-navbar-mobile: rgba(0,0,0,0.817);
+  --color-primary: #4150f2;
+  --color-secondary: #5e0ad3;
+  --color-text: #ffffff;
+  --color-card-bg: #0b0b1a;
+  --color-card-border: #e5ebfe;
+  --color-card-hover: transparent;
+  --color-gallery-heading: #000000;
+  --color-footer-bg: radial-gradient(circle at 150px 10px, #e5ecffb6, #ffffff00);
+  --color-footer-text: #000;
+  --color-footer-link: rgba(12,17,30,0.691);
+  --color-footer-link-hover: #0042a2;
+  --nav-hover: #a4e2ee;
+  --link-color: #a2f2ff;
+
+  /* Typography */
+  --font-heading: 'Freeman', Tahoma, Geneva, Verdana, sans-serif;
+  --font-body: 'Liter', sans-serif;
+
+  /* Spacing & Sizing */
+  --border-radius: 8px;
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+}
+
+/*--------------------------------------------------------------
+   Reset & Base Styles
+--------------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at 150px 10px, var(--color-bg), #cfd2fd);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+input {
+  font-family: var(--font-body);
+}
+
+button {
+  font-family: var(--font-heading);
+}
+
+hr {
+  margin-bottom: 1em;
+  background: #b0c6e5a4;
+  border: 1px solid #b0c6e5a4;
+}
+
+/*--------------------------------------------------------------
+   Sidebar Navigation
+--------------------------------------------------------------*/
+.sidebar {
+  width: 270px;
+  background-color: var(--color-navbar);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: slideIn 0.5s ease-out;
+  z-index: 999;
+}
+
+.sidebar .logo a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.side-nav a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color var(--transition-speed);
+}
+
+.side-nav a.active {
+  color: var(--color-card-border);
+  font-weight: 900;
+  font-family: var(--font-heading);
+  letter-spacing: 2px;
+  font-size: 1.5em;
+}
+
+.side-nav a:hover {
+  color: var(--nav-hover);
+  font-weight: 900;
+  font-family: var(--font-heading);
+}
+
+/*--------------------------------------------------------------
+   Main Content Layout
+--------------------------------------------------------------*/
+.main-content {
+  margin-left: 270px;
+  padding: 2rem;
+  animation: fadeIn 1s ease-in;
+}
+
+.hero.card {
+  border: none;
+  background: transparent;
+  text-align: center;
+}
+
+.hero h1 {
+  all: unset;
+  font-weight: 900;
+  width: 100%;
+}
+
+.mobile-header {
+  display: none;
+}
+
+/*--------------------------------------------------------------
+   Mobile Header Adjustments
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: transparent;
+  }
+  .mobile-header .logo a {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  .menu-toggle {
+    background: var(--color-primary);
+    color: var(--color-text);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+  }
+  .hero.card {
+    text-align: left;
+  }
+}
+
+/* Pagination CSS */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #4150f2;
+  /* Primary color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #5e0ad3;
+  /* Secondary color */
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: #1b1e32;
+}
+
+/*--------------------------------------------------------------
+   Card Components
+--------------------------------------------------------------*/
+.card {
+  border-radius: var(--border-radius);
+  padding: 2rem 1.25rem;
+  margin-bottom: 2rem;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  border-left: 3px solid var(--color-card-border);
+  width: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+.card.page {
+  background: radial-gradient(circle at 150px 10px, #00000000, var(--color-bg));
+}
+
+.card.page p, .card.page a, .card.page li {
+  padding: 1.2em 0;
+}
+
+.card.page b, .card.page strong {
+  padding: 1.2em 0;
+  font-family: var(--font-heading)
+}
+
+.card a {
+  color: var(--link-color);
+}
+
+.card ul {
+  padding: .5em 1em;
+  list-style: none;
+}
+
+.card ul li {
+  padding: 0;
+  margin: 0;
+}
+
+.card ul li a, .card ul li p {
+  padding: 0;
+  margin: 0;
+}
+
+.descriptionCard {
+  color: #fff;
+  font-size: .9em;
+  width: 100%!important;
+}
+
+.descriptionCard p {
+  width: 100%;
+}
+
+.descriptionCard h3 {
+  color: var(--color-card-border);
+  padding: 1rem 0;
+  font-family: var(--font-heading);
+}
+
+.descriptionCard b {
+  font-family: var(--font-heading);
+  letter-spacing: 1.25px;
+}
+
+/* Hero Section Styling */
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: textFadeIn 1s ease-in;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0.5rem auto 1.5rem;
+  color: #ccc;
+}
+
+.hero .hero-content {
+  width: 100%;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #fff;
+  color: var(--color-primary);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+  text-decoration: none;
+  font-weight: 800;
+  text-align: center;
+}
+.hero-buttons a {
+  color: var(--color-primary);
+}
+
+.btn:hover {
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+
+/*--------------------------------------------------------------
+   Section Headings (Features & Gallery)
+--------------------------------------------------------------*/
+.features h2,
+.gallery h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  animation: textFadeIn 1s ease-in;
+  color: var(--color-gallery-heading);
+  font-family: var(--font-heading);
+}
+
+/* Leaderboard Table Styles */
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: var(--font-body);
+  box-sizing: border-box;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 12px 15px;
+  border: 2px solid #131621;
+  text-align: center;
+}
+
+.leaderboard-table th {
+  background-color: #00000000;
+  /* Primary color */
+  color: #fff;
+  font-weight: bold;
+}
+
+.leaderboard-table tr:nth-child(even) {
+  background-color: #000000;
+}
+
+.leaderboard-table tr:nth-child(odd) {
+  background-color: #060709;
+}
+
+.leaderboard-table tr:hover {
+  background-color: #eaeaea;
+  color: #404cdc;
+}
+
+.changelog-container {
+  width: 100%;
+}
+
+.changelog-container h2 {
+  font-size: 1.2rem;
+}
+
+/*--------------------------------------------------------------
+   Card Grid Layout
+--------------------------------------------------------------*/
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem 1rem;
+}
+
+/*--------------------------------------------------------------
+   Individual Card Items
+--------------------------------------------------------------*/
+.card-item {
+  background: radial-gradient(circle at 0px 200px, transparent, #000);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(11, 19, 119, 0.17);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  padding: calc(3 * var(--border-radius));
+  border-bottom: 4px solid #fee5fc;
+  width: 100%;
+}
+
+.card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card-item img,
+.card-item video {
+  width: 100%;
+  display: block;
+}
+
+.card-item h3 {
+  padding: 0.75rem;
+  text-align: center;
+  border-bottom: 3px solid #e4e7ff;
+  margin: 0;
+  font-size: 1.1rem;
+  border-radius: 1em;
+  letter-spacing: 1px;
+  font-family: var(--font-heading);
+}
+
+.card-item p {
+  padding: calc(2 * var(--border-radius));
+  font-size: 1.2em;
+}
+
+/*--------------------------------------------------------------
+   Footer Styling
+--------------------------------------------------------------*/
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  letter-spacing: .25px;
+  width: 100%;
+  font-size: 1.1em;
+  background: var(--color-footer-bg);
+  
+}
+
+footer p {
+  padding: 1rem 0;
+  color: var(--color-footer-text);
+}
+
+footer a {
+  color: var(--color-footer-link)!important;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: 800;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .sidebar.active {
+    display: block;
+    background: var(--color-navbar-mobile);
+    /* Semi-transparent white */
+    backdrop-filter: blur(10px);
+    /* Blur effect */
+    -webkit-backdrop-filter: blur(20px);
+    /* For Safari */
+    border-radius: 10px;
+    /* Rounded corners */
+    color: white;
+  }
+
+  .descriptionCard {
+    color: #000;
+  }
+  .descriptionCard h3 {
+    color: var(--color-secondary);
+  }
+
+  .card-item p {
+    padding: calc(2 * var(--border-radius));
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .descriptionCard {
+    font-size: .7em;
+  }
+  
+  .page {
+    padding: 3em 6em;
+  }
+  
+  .help {
+    padding: 3em 2em;
+  }
+}
+
+@media screen and (min-width: 1640px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem 1rem;
+  }
+  
+  .page {
+    padding: 4em 10em;
+  }
+  
+  .changelog-container, .changelog-entry {
+    width: 100%!important;
+    font-size: 1em;
+  }
+}
+
+/*--------------------------------------------------------------
+   Animations
+--------------------------------------------------------------*/
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

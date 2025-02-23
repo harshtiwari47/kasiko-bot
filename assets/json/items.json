@@ -1,0 +1,78 @@
+{
+  "items":
+  [{
+    "img": "assets/images/items/spector.png",
+    "name": "Cars",
+    "description": "These stylish vehicles are not only a status symbol but also a favorite among car enthusiasts.",
+    "howToUse": "Display it in your garage or profile.",
+    "howToAccess": "Available with an exclusive pass or by purchasing it in the store.",
+    "isPurchaseable": true,
+    "cost": "$18k - $3.8M",
+    "isSharable": false,
+    "itemType": "Car",
+    "isExclusive": false,
+    "interest": 18,
+    "isSellable": true,
+    "contributesToNetWorth": true
+  },
+    {
+      "img": "assets/images/items/structure.png",
+      "name": "Structure",
+      "description": "A versatile residential property that enhances your net worth. Ideal as a living space or a valuable asset.",
+      "howToUse": "Utilize this property as your home or as an investment asset.",
+      "howToAccess": "Available through purchase or by using an exclusive pass.",
+      "isPurchaseable": true,
+      "cost": "$5k - $2.5M",
+      "isSharable": false,
+      "itemType": "Structure",
+      "isExclusive": false,
+      "interest": 25,
+      "isSellable": true,
+      "contributesToNetWorth": true
+    },
+    {
+      "img": "assets/images/items/rings.png",
+      "name": "Rings",
+      "description": "An elegant jewellery ring that symbolizes love and commitment. Perfect for sharing with your spouse and showcasing on your marriage profile, while also contributing to your net worth.",
+      "howToUse": "Wear it or gift it to your spouse to highlight your marital bond.",
+      "howToAccess": "Available for purchase or via an exclusive membership pass.",
+      "isPurchaseable": true,
+      "cost": "$450k - $1.8M",
+      "isSharable": true,
+      "itemType": "Jewellery",
+      "isExclusive": false,
+      "interest": 50,
+      "isSellable": true,
+      "contributesToNetWorth": true
+    },
+    {
+      "img": "assets/images/items/watch.png",
+      "name": "Watches",
+      "description": "A premium timepiece that showcases sophistication and adds to your net worth. A symbol of style, success, and wealth.",
+      "howToUse": "Wear it to enhance your style and status.",
+      "howToAccess": "Available for purchase or through an exclusive pass.",
+      "isPurchaseable": true,
+      "cost": "$700k - $2m",
+      "isSharable": false,
+      "itemType": "Jewellery",
+      "isExclusive": false,
+      "interest": 50,
+      "isSellable": true,
+      "contributesToNetWorth": true
+    },
+    {
+      "img": "assets/images/items/rose.png",
+      "name": "Roses",
+      "description": "A delightful single rose that enhances relationships. Sharing with your spouse increases your bondXP, while sharing with others is also encouraged.",
+      "howToUse": "Gift to your spouse for a bondXP boost, or share with friends and family.",
+      "howToAccess": "Available for purchase, through daily rewards, or as a reward during special events.",
+      "isPurchaseable": true,
+      "cost": "$2500",
+      "isSharable": true,
+      "itemType": "Floral",
+      "isExclusive": false,
+      "interest": 0,
+      "isSellable": false,
+      "contributesToNetWorth": false
+    }]
+}

@@ -1,0 +1,14 @@
+{
+  "🔧 Utility": {
+    "command": {
+      "parameters": "channel <code>on|off</code> <code>[channel mention | all]</code>",
+      "info": "This command toggles whether the bot is allowed to operate in specific text channels. It verifies that the user has 'Manage Server' permissions before proceeding.",
+      "description": "<p>The first parameter must be <code>'on'</code> or <code>'off'</code> to enable or disable the bot, respectively.</p>  <p>The second parameter is optional:</p>  <ul>  <li>Use <code>'all'</code> to affect every text channel in the server.</li>  <li>Provide a channel mention (e.g., <code>#general</code>) to target a specific channel.</li>  <li>If omitted, the current channel is assumed.</li>  </ul>  <p>This utility command helps server moderators control where the bot is active.</p>"
+    },
+    "category": {
+      "parameters": "category <code>on|off</code> <code>[category name | all]</code>",
+      "info": "This command toggles whether the bot is allowed to operate for specific categories within the current channel. It verifies that the user has 'Manage Server' permissions before proceeding. Note that category settings only take effect if the channel is enabled for the bot.",
+      "description": "<p>The first parameter must be <code>'on'</code> or <code>'off'</code> to enable or disable the bot for a category.</p>  <p>The second parameter is required:</p>  <ul>  <li>Use <code>'all'</code> to affect every category in the channel.</li>  <li>Provide a valid category name (e.g., <code>fun</code>, <code>battle</code>) to target a specific category.</li>  </ul>  <p>Ensure that the channel is enabled for the bot (via the <code>channel</code> command) since category settings will only have an effect if the channel is active.</p>"
+    }
+  }
+}
